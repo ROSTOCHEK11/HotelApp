@@ -70,6 +70,22 @@ namespace HotelAppLibrary.Data
         }
 
 
+        public List<BookingFullModel> SearchBookings(string lastName)
+        {
+            return _db.LoadData<BookingFullModel, dynamic>("dbo.spBookings_Search",
+                                                    new { lastName, startDate = DateTime.Now.Date},
+                                                    connectionStringName,
+                                                    true);
+        }
+
+        public void CheckInGuest(int bookingId)
+        {
+            _db.SaveData("dbo.spBookings_CheckIn",
+                         new { Id = bookingId },
+                         connectionStringName,
+                         true);
+        }
+
 
     }
 }

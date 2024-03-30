@@ -45,7 +45,7 @@ namespace HotelAppLibrary.Databases
 
 			string connectionString = _config.GetConnectionString(connectionStringName);
 
-			using (IDbConnection connection = new SqlConnection(connectionString))
+			using (IDbConnection connection = new SQLiteConnection(connectionString))
 			{
 				connection.Execute(sqlStatement, parameters);
 

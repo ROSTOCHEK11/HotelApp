@@ -59,13 +59,15 @@ this layer handles the abstraction necessary to switch between these databases s
 ---
 
 * ### Searching for the guest in the Desktop App
-  ![image](https://github.com/ROSTOCHEK11/HotelApp/assets/113441489/6f8a4d20-165e-4fb3-a33a-cc487bf00f52)
+  ![image](https://github.com/ROSTOCHEK11/HotelApp/assets/113441489/21bbcdd3-635a-4d66-a63a-3c8bb37bab24)
+
   
   _Searching is making by the Last Name and Today's Date_ 
 
 * ### Checking in the guest
   
-  ![image](https://github.com/ROSTOCHEK11/HotelApp/assets/113441489/54deb6dd-75ba-4cd4-af74-b634d2a94c91)
+  ![image](https://github.com/ROSTOCHEK11/HotelApp/assets/113441489/ca96df19-d958-4f5b-9d43-a9f4dfe620e5)
+
 
 
 ## `That is a Minimum Viable Product (MVP), it's going to be upgraded and expanded in the future`

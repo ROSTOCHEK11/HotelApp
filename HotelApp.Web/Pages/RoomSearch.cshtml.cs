@@ -9,16 +9,42 @@ namespace HotelApp.Web.Pages
     public class RoomSearchModel : PageModel
     {
 		private readonly IDatabaseData _db;
+		private DateTime _endDate = DateTime.Now.AddDays(1);
+		private DateTime _startDate = DateTime.Now;
+
+
+		[DataType(DataType.Date)]
+		[BindProperty(SupportsGet = true)]
+		public DateTime StartDate 
+        { 
+            get => _startDate;
+            set 
+            { 
+                _startDate = value; 
+                if(_startDate < DateTime.Now)
+                {
+                    _startDate = DateTime.Now;
+
+				}
+            } 
+        }
 
 		[DataType(DataType.Date)]
         [BindProperty(SupportsGet = true)]
-        public DateTime StartDate { get; set; } = DateTime.Now;
+        public DateTime EndDate 
+        {
+            get => _endDate;
+            set 
+            { 
+                _endDate = value; 
+                if(_endDate < StartDate)
+                {
+                    _endDate = StartDate.AddDays(1);
+                }
+            } 
+        }
 
-        [DataType(DataType.Date)]
 		[BindProperty(SupportsGet = true)]
-		public DateTime EndDate { get; set; } = DateTime.Now.AddDays(1);
-
-        [BindProperty(SupportsGet = true)]
         public bool SearchEnabled { get; set; } = false;
 
         public List<RoomTypeModel> AvailableRoomTypes { get; set; }

@@ -27,10 +27,15 @@ namespace HotelApp.Desktop
 			_db = db;
 		}
 
-		private void searchForGuest_Click(object sender, RoutedEventArgs e)
+		public void SearchForGuests()
 		{
 			List<BookingFullModel> bookings = _db.SearchBookings(lastNameText.Text);
-			resultsList.ItemsSource = bookings;
+			resultsList.ItemsSource = bookings.Where(x => x.CheckedIn == false);
+		}
+
+		private void searchForGuest_Click(object sender, RoutedEventArgs e)
+		{
+			SearchForGuests();
 		}
 
 		private void CheckInButton_Click(object sender, RoutedEventArgs e)
@@ -40,8 +45,17 @@ namespace HotelApp.Desktop
 
 			checkInForm.PopulateCheckInInfo(model);
 
+			checkInForm.GuestCheckedIn += RefreshList;
+
 			checkInForm.Show(); 
 
 		}
+
+
+		private void RefreshList(object sender, EventArgs e)
+		{
+			SearchForGuests();
+		}
+
 	}
 }

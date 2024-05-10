@@ -1,5 +1,6 @@
 ﻿using HotelAppLibrary.Data;
 using HotelAppLibrary.Models;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace HotelApp.Desktop
 		private readonly IDatabaseData _db;
 		private BookingFullModel _data = null;
 
+		public event EventHandler GuestCheckedIn;
+
 		public CheckInForm(IDatabaseData db)
 		{
 			InitializeComponent();
@@ -45,6 +48,9 @@ namespace HotelApp.Desktop
 		private void CheckInUser_Click(object sender, RoutedEventArgs e)
 		{
 			_db.CheckInGuest(_data.Id);
+
+			GuestCheckedIn?.Invoke(this, EventArgs.Empty);
+
 			this.Close();
 		}
 	}

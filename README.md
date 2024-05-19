@@ -70,4 +70,3 @@ this layer handles the abstraction necessary to switch between these databases s
 
 
 
-## `That is a Minimum Viable Product (MVP), it's going to be upgraded and expanded in the future`
